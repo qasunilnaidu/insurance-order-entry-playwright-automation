@@ -1,0 +1,138 @@
+name: Playwright QA Automation
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Suite to run'
+        required: true
+        default: 'smoke'
+        type: choice
+        options: [smoke, regression, api, all]
+  pull_request:
+  schedule:
+    # Nightly regression, 01:30 UTC
+    - cron: '30 1 * * *'
+  # Simulates "QA deployment completed" from the application pipeline
+  repository_dispatch:
+    types: [qa-deployment-completed]
+
+jobs:
+  smoke:
+    name: Smoke tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: true
+      BASE_URL: ${{ vars.BASE_URL }}
+      API_BASE_URL: ${{ vars.API_BASE_URL }}
+      AGENT_USERNAME: ${{ secrets.AGENT_USERNAME }}
+      AGENT_PASSWORD: ${{ secrets.AGENT_PASSWORD }}
+      AGENT2_USERNAME: ${{ secrets.AGENT2_USERNAME }}
+      AGENT2_PASSWORD: ${{ secrets.AGENT2_PASSWORD }}
+      NEW_AGENT_USERNAME: ${{ secrets.NEW_AGENT_USERNAME }}
+      NEW_AGENT_PASSWORD: ${{ secrets.NEW_AGENT_PASSWORD }}
+      LOCKED_AGENT_USERNAME: ${{ secrets.LOCKED_AGENT_USERNAME }}
+      LOCKED_AGENT_PASSWORD: ${{ secrets.LOCKED_AGENT_PASSWORD }}
+      PRODUCT_NAME: ${{ vars.PRODUCT_NAME }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Run smoke tests
+        run: npx playwright test --grep @smoke
+
+      - name: Upload smoke report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-report
+          path: |
+            reports/html
+            reports/test-results
+            reports/junit.xml
+          retention-days: 14
+
+  regression:
+    name: Regression tests
+    needs: smoke
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event_name == 'pull_request' ||
+      github.event_name == 'repository_dispatch' ||
+      (github.event_name == 'workflow_dispatch' && inputs.suite != 'smoke')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CI: true
+      BASE_URL: ${{ vars.BASE_URL }}
+      API_BASE_URL: ${{ vars.API_BASE_URL }}
+      AGENT_USERNAME: ${{ secrets.AGENT_USERNAME }}
+      AGENT_PASSWORD: ${{ secrets.AGENT_PASSWORD }}
+      AGENT2_USERNAME: ${{ secrets.AGENT2_USERNAME }}
+      AGENT2_PASSWORD: ${{ secrets.AGENT2_PASSWORD }}
+      NEW_AGENT_USERNAME: ${{ secrets.NEW_AGENT_USERNAME }}
+      NEW_AGENT_PASSWORD: ${{ secrets.NEW_AGENT_PASSWORD }}
+      LOCKED_AGENT_USERNAME: ${{ secrets.LOCKED_AGENT_USERNAME }}
+      LOCKED_AGENT_PASSWORD: ${{ secrets.LOCKED_AGENT_PASSWORD }}
+      PRODUCT_NAME: ${{ vars.PRODUCT_NAME }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run regression suite
+        run: npx playwright test --grep @regression
+
+      - name: Upload regression report, traces, screenshots and videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-report
+          path: |
+            reports/html
+            reports/test-results
+            reports/junit.xml
+          retention-days: 14
+
+  release-gate:
+    name: Release decision
+    needs: [smoke, regression]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Treat failed critical tests as release-blocking
+        run: |
+          echo "smoke:      ${{ needs.smoke.result }}"
+          echo "regression: ${{ needs.regression.result }}"
+          if [ "${{ needs.smoke.result }}" = "failure" ] || [ "${{ needs.regression.result }}" = "failure" ]; then
+            echo "Release BLOCKED: critical automated tests failed."
+            exit 1
+          fi
+          echo "Release candidate passed automated QA gate."

@@ -1,0 +1,2375 @@
+{
+ "TC-AUTH-01": {
+  "id": "TC-AUTH-01",
+  "title": "Valid agent logs in and lands on dashboard",
+  "module": "Authentication",
+  "validationId": "AUTH-V01",
+  "requirement": "AUTH-V01",
+  "riskId": "QR-01",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@auth"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/auth/login.spec.ts"
+ },
+ "TC-AUTH-02": {
+  "id": "TC-AUTH-02",
+  "title": "Invalid password and unknown user show the same safe error and no session",
+  "module": "Authentication",
+  "validationId": "AUTH-V02",
+  "requirement": "AUTH-V02",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/login.spec.ts"
+ },
+ "TC-AUTH-03": {
+  "id": "TC-AUTH-03",
+  "title": "Blank username and password show mandatory-field errors",
+  "module": "Authentication",
+  "validationId": "AUTH-V03",
+  "requirement": "AUTH-V03",
+  "riskId": "QR-01",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/login.spec.ts"
+ },
+ "TC-AUTH-04": {
+  "id": "TC-AUTH-04",
+  "title": "Logout clears session and protected routes redirect",
+  "module": "Authentication",
+  "validationId": "AUTH-V04",
+  "requirement": "AUTH-V04",
+  "riskId": "QR-01",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@auth"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/auth/session.spec.ts"
+ },
+ "TC-AUTH-05": {
+  "id": "TC-AUTH-05",
+  "title": "Direct access to protected routes without login is blocked",
+  "module": "Authentication",
+  "validationId": "AUTH-V05",
+  "requirement": "AUTH-V05",
+  "riskId": "QR-01",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@auth"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/session.spec.ts"
+ },
+ "TC-AUTH-06": {
+  "id": "TC-AUTH-06",
+  "title": "Locked user cannot access dashboard and sees accurate message",
+  "module": "Authentication",
+  "validationId": "AUTH-V06",
+  "requirement": "AUTH-V06",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/lockout.spec.ts"
+ },
+ "TC-AUTH-07": {
+  "id": "TC-AUTH-07",
+  "title": "Account locks after five failed login attempts",
+  "module": "Authentication",
+  "validationId": "AUTH-V07",
+  "requirement": "AUTH-V07",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/auth/lockout.spec.ts"
+ },
+ "TC-AUTH-08": {
+  "id": "TC-AUTH-08",
+  "title": "Weak password rejected during reset/change",
+  "module": "Authentication",
+  "validationId": "AUTH-V08",
+  "requirement": "AUTH-V08",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/password.spec.ts"
+ },
+ "TC-AUTH-09": {
+  "id": "TC-AUTH-09",
+  "title": "MFA agent completes login with simulated OTP",
+  "module": "Authentication",
+  "validationId": "",
+  "requirement": "Guideline: reset OTP / MFA",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/auth/mfa.spec.ts"
+ },
+ "TC-AUTH-10": {
+  "id": "TC-AUTH-10",
+  "title": "Password reset via OTP succeeds with valid new password",
+  "module": "Authentication",
+  "validationId": "",
+  "requirement": "Guideline: reset OTP",
+  "riskId": "QR-01",
+  "severity": "Medium",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/auth/password.spec.ts"
+ },
+ "TC-AUTH-11": {
+  "id": "TC-AUTH-11",
+  "title": "Reusing the same password on reset is rejected",
+  "module": "Authentication",
+  "validationId": "",
+  "requirement": "Guideline: same password reuse",
+  "riskId": "QR-01",
+  "severity": "Medium",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/password.spec.ts"
+ },
+ "TC-AUTH-12": {
+  "id": "TC-AUTH-12",
+  "title": "Expired/timed-out session forces re-login without data exposure",
+  "module": "Authentication",
+  "validationId": "",
+  "requirement": "Spec: session timeout / Sub 1 path 'Session expiration'",
+  "riskId": "QR-01, QR-10",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/session.spec.ts"
+ },
+ "TC-AUTH-13": {
+  "id": "TC-AUTH-13",
+  "title": "Pending (unapproved) agent cannot access the platform",
+  "module": "Authentication",
+  "validationId": "",
+  "requirement": "Spec: user type 'pending agent'",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/auth/login.spec.ts"
+ },
+ "TC-DASH-01": {
+  "id": "TC-DASH-01",
+  "title": "Dashboard shows summaries and New Application CTA after login",
+  "module": "Dashboard",
+  "validationId": "DASH-V01",
+  "requirement": "DASH-V01",
+  "riskId": "QR-02",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@dashboard"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-DASH-02": {
+  "id": "TC-DASH-02",
+  "title": "Agent sees only own applications (UI isolation)",
+  "module": "Dashboard",
+  "validationId": "DASH-V02",
+  "requirement": "DASH-V02",
+  "riskId": "QR-02",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@dashboard"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-DASH-03": {
+  "id": "TC-DASH-03",
+  "title": "New agent sees empty-state message and CTA",
+  "module": "Dashboard",
+  "validationId": "DASH-V03",
+  "requirement": "DASH-V03",
+  "riskId": "QR-02",
+  "severity": "Low",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@dashboard"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-DASH-04": {
+  "id": "TC-DASH-04",
+  "title": "Draft can be resumed with previously entered data",
+  "module": "Dashboard",
+  "validationId": "DASH-V04",
+  "requirement": "DASH-V04",
+  "riskId": "QR-02, QR-10",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@dashboard"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-DASH-05": {
+  "id": "TC-DASH-05",
+  "title": "Status filter returns correct rows (Draft/Submitted/Approved)",
+  "module": "Dashboard",
+  "validationId": "DASH-V05",
+  "requirement": "DASH-V05",
+  "riskId": "QR-02",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@dashboard"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-DASH-06": {
+  "id": "TC-DASH-06",
+  "title": "Dashboard status matches status API for each application (status endpoint)",
+  "module": "Dashboard",
+  "validationId": "DASH-V06",
+  "requirement": "DASH-V06",
+  "riskId": "QR-02, QR-09",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@dashboard",
+   "@api"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard-api.spec.ts"
+ },
+ "TC-DASH-07": {
+  "id": "TC-DASH-07",
+  "title": "Dashboard search finds an application by name/reference",
+  "module": "Dashboard",
+  "validationId": "",
+  "requirement": "Spec: dashboard search",
+  "riskId": "QR-02",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@dashboard"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-DASH-08": {
+  "id": "TC-DASH-08",
+  "title": "Agent cannot open another agent's application by direct URL",
+  "module": "Dashboard",
+  "validationId": "",
+  "requirement": "Risk QR-02 (isolation)",
+  "riskId": "QR-02, QR-01",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@dashboard",
+   "@auth"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/dashboard/isolation.spec.ts"
+ },
+ "TC-DASH-09": {
+  "id": "TC-DASH-09",
+  "title": "Profile and Support pages load for a logged-in agent and are protected when logged out",
+  "module": "Dashboard",
+  "validationId": "",
+  "requirement": "Routes /profile, /support",
+  "riskId": "QR-01",
+  "severity": "Low",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@dashboard",
+   "@auth"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/dashboard/dashboard.spec.ts"
+ },
+ "TC-CLI-01": {
+  "id": "TC-CLI-01",
+  "title": "Valid insured personal information is saved and Next is enabled",
+  "module": "Client Information",
+  "validationId": "CLI-V01",
+  "requirement": "CLI-V01",
+  "riskId": "QR-03, QR-10",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@client"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/client-information/client.spec.ts"
+ },
+ "TC-CLI-02": {
+  "id": "TC-CLI-02",
+  "title": "Mandatory personal fields show inline errors",
+  "module": "Client Information",
+  "validationId": "CLI-V02",
+  "requirement": "CLI-V02",
+  "riskId": "QR-03",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/client.spec.ts"
+ },
+ "TC-CLI-03": {
+  "id": "TC-CLI-03",
+  "title": "DOB making client under 18 is rejected",
+  "module": "Client Information",
+  "validationId": "CLI-V03",
+  "requirement": "CLI-V03",
+  "riskId": "QR-03",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/client-information/dob.spec.ts"
+ },
+ "TC-CLI-04": {
+  "id": "TC-CLI-04",
+  "title": "DOB making client over 65 is rejected",
+  "module": "Client Information",
+  "validationId": "CLI-V04",
+  "requirement": "CLI-V04",
+  "riskId": "QR-03",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/client-information/dob.spec.ts"
+ },
+ "TC-CLI-05": {
+  "id": "TC-CLI-05",
+  "title": "Future DOB is rejected",
+  "module": "Client Information",
+  "validationId": "CLI-V05",
+  "requirement": "CLI-V05",
+  "riskId": "QR-03",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@client"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/client-information/dob.spec.ts"
+ },
+ "TC-CLI-06": {
+  "id": "TC-CLI-06",
+  "title": "Boundary ages 18 and 65 are accepted (inclusive boundary)",
+  "module": "Client Information",
+  "validationId": "",
+  "requirement": "Guideline: DOB rules (BVA)",
+  "riskId": "QR-03",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/client-information/dob.spec.ts"
+ },
+ "TC-CLI-07": {
+  "id": "TC-CLI-07",
+  "title": "Calculated age is displayed correctly from DOB",
+  "module": "Client Information",
+  "validationId": "",
+  "requirement": "Guideline: age visibility",
+  "riskId": "QR-03",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/client-information/dob.spec.ts"
+ },
+ "TC-CLI-08": {
+  "id": "TC-CLI-08",
+  "title": "Invalid name formats are rejected",
+  "module": "Client Information",
+  "validationId": "",
+  "requirement": "Guideline: name validation",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/client.spec.ts"
+ },
+ "TC-CLI-09": {
+  "id": "TC-CLI-09",
+  "title": "Impossible or malformed DOB values are rejected",
+  "module": "Client Information",
+  "validationId": "",
+  "requirement": "Guideline: date of birth rules",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@client"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/client-information/dob.spec.ts"
+ },
+ "TC-ADDR-01": {
+  "id": "TC-ADDR-01",
+  "title": "Same-as-residential copies address to mailing",
+  "module": "Address & Contact",
+  "validationId": "CLI-V06",
+  "requirement": "CLI-V06",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@address"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/client-information/address.spec.ts"
+ },
+ "TC-ADDR-02": {
+  "id": "TC-ADDR-02",
+  "title": "Unticking same-as-residential makes mailing editable and independent",
+  "module": "Address & Contact",
+  "validationId": "",
+  "requirement": "Guideline: same-as-residential",
+  "riskId": "QR-03",
+  "severity": "Low",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@address"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/client-information/address.spec.ts"
+ },
+ "TC-ADDR-03": {
+  "id": "TC-ADDR-03",
+  "title": "Invalid ZIP/postal code is rejected",
+  "module": "Address & Contact",
+  "validationId": "",
+  "requirement": "Guideline: ZIP validation",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@address"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/address.spec.ts"
+ },
+ "TC-ADDR-04": {
+  "id": "TC-ADDR-04",
+  "title": "State is mandatory and ZIP/state mismatch is flagged",
+  "module": "Address & Contact",
+  "validationId": "",
+  "requirement": "Guideline: state validation",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@address"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/address.spec.ts"
+ },
+ "TC-ADDR-05": {
+  "id": "TC-ADDR-05",
+  "title": "Invalid email format is rejected",
+  "module": "Address & Contact",
+  "validationId": "CLI-V07",
+  "requirement": "CLI-V07",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@address"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/contact.spec.ts"
+ },
+ "TC-ADDR-06": {
+  "id": "TC-ADDR-06",
+  "title": "Invalid phone number is rejected",
+  "module": "Address & Contact",
+  "validationId": "CLI-V07",
+  "requirement": "CLI-V07",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@address"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/contact.spec.ts"
+ },
+ "TC-ADDR-07": {
+  "id": "TC-ADDR-07",
+  "title": "At least one contact method / preferred mode is required",
+  "module": "Address & Contact",
+  "validationId": "",
+  "requirement": "Guideline: mandatory contact method",
+  "riskId": "QR-03",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@address"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/contact.spec.ts"
+ },
+ "TC-KYC-01": {
+  "id": "TC-KYC-01",
+  "title": "SSN is masked after entry (only last four visible)",
+  "module": "KYC & Financial",
+  "validationId": "CLI-V08",
+  "requirement": "CLI-V08",
+  "riskId": "QR-04",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-02": {
+  "id": "TC-KYC-02",
+  "title": "ID number validated by ID type",
+  "module": "KYC & Financial",
+  "validationId": "",
+  "requirement": "Risk QR-04",
+  "riskId": "QR-04",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-03": {
+  "id": "TC-KYC-03",
+  "title": "KYC upload rejects unsupported file type",
+  "module": "KYC & Financial",
+  "validationId": "CLI-V09",
+  "requirement": "CLI-V09",
+  "riskId": "QR-04, QR-08",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-04": {
+  "id": "TC-KYC-04",
+  "title": "PEP 'Yes' makes details mandatory",
+  "module": "KYC & Financial",
+  "validationId": "CLI-V10",
+  "requirement": "CLI-V10",
+  "riskId": "QR-04",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-05": {
+  "id": "TC-KYC-05",
+  "title": "Income vs premium affordability validation is applied",
+  "module": "KYC & Financial",
+  "validationId": "",
+  "requirement": "Risk QR-04 / QR-05",
+  "riskId": "QR-04, QR-05",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-06": {
+  "id": "TC-KYC-06",
+  "title": "Incomplete compliance declaration blocks progression",
+  "module": "KYC & Financial",
+  "validationId": "",
+  "requirement": "Functional spec: Compliance",
+  "riskId": "QR-04",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-07": {
+  "id": "TC-KYC-07",
+  "title": "Sensitive ID is not returned unmasked in client API response",
+  "module": "KYC & Financial",
+  "validationId": "",
+  "requirement": "Spec: SSN masking",
+  "riskId": "QR-04",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@kyc"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/client-api.spec.ts"
+ },
+ "TC-KYC-08": {
+  "id": "TC-KYC-08",
+  "title": "Financial suitability fields are mandatory and numeric-validated",
+  "module": "KYC & Financial",
+  "validationId": "",
+  "requirement": "Spec: income, net worth, source of funds, risk profile",
+  "riskId": "QR-04",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-KYC-09": {
+  "id": "TC-KYC-09",
+  "title": "ID issue/expiry dates are validated",
+  "module": "KYC & Financial",
+  "validationId": "",
+  "requirement": "Spec: ID issue/expiry date",
+  "riskId": "QR-04",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@kyc"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/client-information/kyc.spec.ts"
+ },
+ "TC-PROD-01": {
+  "id": "TC-PROD-01",
+  "title": "Catalog lists expected Whole Life products",
+  "module": "Product & Policy",
+  "validationId": "PROD-V01",
+  "requirement": "PROD-V01",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/catalog.spec.ts"
+ },
+ "TC-PROD-02": {
+  "id": "TC-PROD-02",
+  "title": "Product detail page shows features, eligibility and limits",
+  "module": "Product & Policy",
+  "validationId": "PROD-V02",
+  "requirement": "PROD-V02",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P3",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/catalog.spec.ts"
+ },
+ "TC-PROD-03": {
+  "id": "TC-PROD-03",
+  "title": "Face value below minimum is rejected",
+  "module": "Product & Policy",
+  "validationId": "PROD-V03",
+  "requirement": "PROD-V03",
+  "riskId": "QR-05",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/product-selection/face-value.spec.ts"
+ },
+ "TC-PROD-04": {
+  "id": "TC-PROD-04",
+  "title": "Face value above maximum is rejected",
+  "module": "Product & Policy",
+  "validationId": "PROD-V04",
+  "requirement": "PROD-V04",
+  "riskId": "QR-05",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/product-selection/face-value.spec.ts"
+ },
+ "TC-PROD-05": {
+  "id": "TC-PROD-05",
+  "title": "Premium recalculates when frequency changes",
+  "module": "Product & Policy",
+  "validationId": "PROD-V05",
+  "requirement": "PROD-V05",
+  "riskId": "QR-05",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/premium.spec.ts"
+ },
+ "TC-PROD-06": {
+  "id": "TC-PROD-06",
+  "title": "Review-page premium equals configuration-page premium",
+  "module": "Product & Policy",
+  "validationId": "PROD-V06",
+  "requirement": "PROD-V06",
+  "riskId": "QR-05",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/premium.spec.ts"
+ },
+ "TC-PROD-07": {
+  "id": "TC-PROD-07",
+  "title": "Suitability warning appears for risk-profile mismatch",
+  "module": "Product & Policy",
+  "validationId": "PROD-V07",
+  "requirement": "PROD-V07",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/product-selection/suitability.spec.ts"
+ },
+ "TC-PROD-08": {
+  "id": "TC-PROD-08",
+  "title": "Inactive product cannot be selected",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "Guideline: inactive products",
+  "riskId": "QR-05",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/product-selection/catalog.spec.ts"
+ },
+ "TC-PROD-09": {
+  "id": "TC-PROD-09",
+  "title": "Saved product configuration persists after reopening",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "Guideline: persistence checks",
+  "riskId": "QR-10",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/persistence.spec.ts"
+ },
+ "TC-PROD-10": {
+  "id": "TC-PROD-10",
+  "title": "Product eligibility is validated against client age",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "Problem statement 2.2: product eligibility vs age",
+  "riskId": "QR-05",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/product-selection/eligibility.spec.ts"
+ },
+ "TC-PROD-11": {
+  "id": "TC-PROD-11",
+  "title": "Payment term and policy term options follow product rules",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "Spec: payment term / policy term",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/terms.spec.ts"
+ },
+ "TC-PROD-12": {
+  "id": "TC-PROD-12",
+  "title": "Invalid face value inputs (zero, negative, non-numeric, decimals) are rejected",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "Spec: face value boundary validation",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/product-selection/face-value.spec.ts"
+ },
+ "TC-PROD-13": {
+  "id": "TC-PROD-13",
+  "title": "Product search/filter in catalog returns correct products",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "ProductCatalogPage: product search",
+  "riskId": "QR-05",
+  "severity": "Low",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/catalog.spec.ts"
+ },
+ "TC-PROD-14": {
+  "id": "TC-PROD-14",
+  "title": "Premium shown in UI equals premium from API (reconciliation)",
+  "module": "Product & Policy",
+  "validationId": "",
+  "requirement": "Spec: premium UI/API reconciliation",
+  "riskId": "QR-05, QR-09",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@product",
+   "@api"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/product-selection/premium.spec.ts"
+ },
+ "TC-RID-01": {
+  "id": "TC-RID-01",
+  "title": "Eligible protection rider (ADB) can be added",
+  "module": "Riders",
+  "validationId": "RIDER-V01",
+  "requirement": "RIDER-V01",
+  "riskId": "QR-06",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@rider"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-02": {
+  "id": "TC-RID-02",
+  "title": "Rider coverage cannot exceed base face value",
+  "module": "Riders",
+  "validationId": "RIDER-V02",
+  "requirement": "RIDER-V02",
+  "riskId": "QR-06",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-03": {
+  "id": "TC-RID-03",
+  "title": "Age-ineligible rider cannot be added",
+  "module": "Riders",
+  "validationId": "RIDER-V03",
+  "requirement": "RIDER-V03",
+  "riskId": "QR-06",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-04": {
+  "id": "TC-RID-04",
+  "title": "Maximum rider count is enforced",
+  "module": "Riders",
+  "validationId": "RIDER-V04",
+  "requirement": "RIDER-V04",
+  "riskId": "QR-06",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-05": {
+  "id": "TC-RID-05",
+  "title": "Mutually exclusive waiver riders cannot both be selected",
+  "module": "Riders",
+  "validationId": "RIDER-V05",
+  "requirement": "RIDER-V05",
+  "riskId": "QR-06",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-06": {
+  "id": "TC-RID-06",
+  "title": "Critical illness rider triggers health questionnaire",
+  "module": "Riders",
+  "validationId": "RIDER-V06",
+  "requirement": "RIDER-V06",
+  "riskId": "QR-06",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-07": {
+  "id": "TC-RID-07",
+  "title": "Rider premium is itemized and total updates",
+  "module": "Riders",
+  "validationId": "RIDER-V07",
+  "requirement": "RIDER-V07",
+  "riskId": "QR-06, QR-05",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-08": {
+  "id": "TC-RID-08",
+  "title": "Rider dependency rules are enforced",
+  "module": "Riders",
+  "validationId": "",
+  "requirement": "Spec: rider dependency rules",
+  "riskId": "QR-06",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-RID-09": {
+  "id": "TC-RID-09",
+  "title": "Removing a rider updates premium itemization and total",
+  "module": "Riders",
+  "validationId": "",
+  "requirement": "Spec: premium itemization",
+  "riskId": "QR-06, QR-05",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/riders/riders.spec.ts"
+ },
+ "TC-BEN-01": {
+  "id": "TC-BEN-01",
+  "title": "Add a valid primary beneficiary",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V01",
+  "requirement": "BEN-V01",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/beneficiaries.spec.ts"
+ },
+ "TC-BEN-02": {
+  "id": "TC-BEN-02",
+  "title": "Primary allocation below 100% blocks progression",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V02",
+  "requirement": "BEN-V02",
+  "riskId": "QR-07",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/beneficiaries/allocation.spec.ts"
+ },
+ "TC-BEN-03": {
+  "id": "TC-BEN-03",
+  "title": "Primary allocation above 100% blocks progression",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V03",
+  "requirement": "BEN-V03",
+  "riskId": "QR-07",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/beneficiaries/allocation.spec.ts"
+ },
+ "TC-BEN-04": {
+  "id": "TC-BEN-04",
+  "title": "Secondary allocation is validated separately",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V04",
+  "requirement": "BEN-V04",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/beneficiaries/allocation.spec.ts"
+ },
+ "TC-BEN-05": {
+  "id": "TC-BEN-05",
+  "title": "Minor beneficiary requires guardian details",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V05",
+  "requirement": "BEN-V05",
+  "riskId": "QR-07",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/beneficiaries/minor.spec.ts"
+ },
+ "TC-BEN-06": {
+  "id": "TC-BEN-06",
+  "title": "Trust beneficiary shows trust-specific fields",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V06",
+  "requirement": "BEN-V06",
+  "riskId": "QR-07",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/types.spec.ts"
+ },
+ "TC-BEN-07": {
+  "id": "TC-BEN-07",
+  "title": "Organization beneficiary shows organization fields",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V07",
+  "requirement": "BEN-V07",
+  "riskId": "QR-07",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/types.spec.ts"
+ },
+ "TC-BEN-08": {
+  "id": "TC-BEN-08",
+  "title": "Duplicate beneficiary (Name + DOB + Relationship) is blocked",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V08",
+  "requirement": "BEN-V08",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/beneficiaries/duplicates.spec.ts"
+ },
+ "TC-BEN-09": {
+  "id": "TC-BEN-09",
+  "title": "Removing a beneficiary updates the allocation total",
+  "module": "Beneficiaries",
+  "validationId": "BEN-V09",
+  "requirement": "BEN-V09",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/allocation.spec.ts"
+ },
+ "TC-BEN-10": {
+  "id": "TC-BEN-10",
+  "title": "Irrevocable designation requires legal confirmation modal",
+  "module": "Beneficiaries",
+  "validationId": "",
+  "requirement": "Spec: special designation",
+  "riskId": "QR-07",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/special.spec.ts"
+ },
+ "TC-BEN-11": {
+  "id": "TC-BEN-11",
+  "title": "At least one primary beneficiary is mandatory",
+  "module": "Beneficiaries",
+  "validationId": "",
+  "requirement": "Spec: primary beneficiary",
+  "riskId": "QR-07, QR-09",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/beneficiaries/allocation.spec.ts"
+ },
+ "TC-BEN-12": {
+  "id": "TC-BEN-12",
+  "title": "Editing a beneficiary updates the record and allocation total",
+  "module": "Beneficiaries",
+  "validationId": "",
+  "requirement": "Spec: add/edit/remove beneficiaries",
+  "riskId": "QR-07, QR-10",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/beneficiaries.spec.ts"
+ },
+ "TC-BEN-13": {
+  "id": "TC-BEN-13",
+  "title": "Invalid allocation inputs (0, negative, non-numeric, decimals) are handled",
+  "module": "Beneficiaries",
+  "validationId": "",
+  "requirement": "Spec: allocation percentage validation",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/beneficiaries/allocation.spec.ts"
+ },
+ "TC-BEN-14": {
+  "id": "TC-BEN-14",
+  "title": "Beneficiaries persist after save, navigation and resume",
+  "module": "Beneficiaries",
+  "validationId": "",
+  "requirement": "Spec: persistence",
+  "riskId": "QR-07, QR-10",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/beneficiaries/persistence.spec.ts"
+ },
+ "TC-DOC-01": {
+  "id": "TC-DOC-01",
+  "title": "Valid KYC document uploads successfully",
+  "module": "Documents & Validation",
+  "validationId": "DOC-V01",
+  "requirement": "DOC-V01",
+  "riskId": "QR-08",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@documents"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/documents/upload.spec.ts"
+ },
+ "TC-DOC-02": {
+  "id": "TC-DOC-02",
+  "title": "Unsupported file type is rejected on Documents step",
+  "module": "Documents & Validation",
+  "validationId": "DOC-V02",
+  "requirement": "DOC-V02",
+  "riskId": "QR-08",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/documents/upload.spec.ts"
+ },
+ "TC-DOC-03": {
+  "id": "TC-DOC-03",
+  "title": "File above maximum size is rejected",
+  "module": "Documents & Validation",
+  "validationId": "DOC-V03",
+  "requirement": "DOC-V03",
+  "riskId": "QR-08",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Boundary",
+  "spec": "tests/documents/upload.spec.ts"
+ },
+ "TC-DOC-04": {
+  "id": "TC-DOC-04",
+  "title": "Missing mandatory document blocks submission",
+  "module": "Documents & Validation",
+  "validationId": "DOC-V04",
+  "requirement": "DOC-V04",
+  "riskId": "QR-08, QR-09",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/documents/upload.spec.ts"
+ },
+ "TC-DOC-05": {
+  "id": "TC-DOC-05",
+  "title": "Uploaded document status persists after reload and resume",
+  "module": "Documents & Validation",
+  "validationId": "",
+  "requirement": "Spec: upload confirmation/status",
+  "riskId": "QR-08, QR-10",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/documents/upload.spec.ts"
+ },
+ "TC-VAL-01": {
+  "id": "TC-VAL-01",
+  "title": "Validation summary lists all unresolved errors grouped",
+  "module": "Documents & Validation",
+  "validationId": "VAL-V01",
+  "requirement": "VAL-V01",
+  "riskId": "QR-08",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/documents/validation-summary.spec.ts"
+ },
+ "TC-VAL-02": {
+  "id": "TC-VAL-02",
+  "title": "Clicking a validation error navigates to the field",
+  "module": "Documents & Validation",
+  "validationId": "VAL-V02",
+  "requirement": "VAL-V02",
+  "riskId": "QR-08",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/documents/validation-summary.spec.ts"
+ },
+ "TC-VAL-03": {
+  "id": "TC-VAL-03",
+  "title": "Submit stays disabled until critical errors are resolved",
+  "module": "Documents & Validation",
+  "validationId": "VAL-V03",
+  "requirement": "VAL-V03",
+  "riskId": "QR-08, QR-09",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@regression",
+   "@documents"
+  ],
+  "short": true,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/documents/validation-summary.spec.ts"
+ },
+ "TC-VAL-04": {
+  "id": "TC-VAL-04",
+  "title": "Validation summary refreshes after upstream data changes (not stale)",
+  "module": "Documents & Validation",
+  "validationId": "",
+  "requirement": "Risk QR-08: summary stale",
+  "riskId": "QR-08",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/documents/validation-summary.spec.ts"
+ },
+ "TC-VAL-05": {
+  "id": "TC-VAL-05",
+  "title": "Review page shows data consistent with what was entered",
+  "module": "Documents & Validation",
+  "validationId": "",
+  "requirement": "Guideline: review consistency",
+  "riskId": "QR-08, QR-10",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/documents/review.spec.ts"
+ },
+ "TC-WF-01": {
+  "id": "TC-WF-01",
+  "title": "Incomplete application can be saved as draft",
+  "module": "Submission & Status",
+  "validationId": "WF-V01",
+  "requirement": "WF-V01",
+  "riskId": "QR-10",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/draft.spec.ts"
+ },
+ "TC-WF-02": {
+  "id": "TC-WF-02",
+  "title": "Draft resumes with saved data at correct step",
+  "module": "Submission & Status",
+  "validationId": "WF-V02",
+  "requirement": "WF-V02",
+  "riskId": "QR-10",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/draft.spec.ts"
+ },
+ "TC-WF-03": {
+  "id": "TC-WF-03",
+  "title": "Valid application is submitted end to end and gets a reference number",
+  "module": "Submission & Status",
+  "validationId": "WF-V03",
+  "requirement": "WF-V03",
+  "riskId": "QR-09",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@e2e",
+   "@workflow"
+  ],
+  "short": true,
+  "type": "E2E",
+  "scenario": "Positive",
+  "spec": "tests/workflow/e2e-submission.spec.ts"
+ },
+ "TC-WF-04": {
+  "id": "TC-WF-04",
+  "title": "Submitted application is read-only",
+  "module": "Submission & Status",
+  "validationId": "WF-V04",
+  "requirement": "WF-V04",
+  "riskId": "QR-09",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/submission.spec.ts"
+ },
+ "TC-WF-05": {
+  "id": "TC-WF-05",
+  "title": "Confirmation/status message shown after submission",
+  "module": "Submission & Status",
+  "validationId": "WF-V05",
+  "requirement": "WF-V05",
+  "riskId": "QR-09",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/submission.spec.ts"
+ },
+ "TC-WF-06": {
+  "id": "TC-WF-06",
+  "title": "Dashboard status updates to Submitted after submission",
+  "module": "Submission & Status",
+  "validationId": "WF-V06",
+  "requirement": "WF-V06",
+  "riskId": "QR-02, QR-09",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/submission.spec.ts"
+ },
+ "TC-WF-07": {
+  "id": "TC-WF-07",
+  "title": "Application detail status matches status API",
+  "module": "Submission & Status",
+  "validationId": "WF-V07",
+  "requirement": "WF-V07",
+  "riskId": "QR-09",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@regression",
+   "@workflow",
+   "@api"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/status.spec.ts"
+ },
+ "TC-WF-08": {
+  "id": "TC-WF-08",
+  "title": "Reference numbers are unique across submissions",
+  "module": "Submission & Status",
+  "validationId": "",
+  "requirement": "Risk QR-09",
+  "riskId": "QR-09",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@e2e",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "E2E",
+  "scenario": "Positive",
+  "spec": "tests/workflow/e2e-submission.spec.ts"
+ },
+ "TC-WF-09": {
+  "id": "TC-WF-09",
+  "title": "Status history records Draft to Submitted with timestamps",
+  "module": "Submission & Status",
+  "validationId": "",
+  "requirement": "Risk QR-09",
+  "riskId": "QR-09, QR-10",
+  "severity": "Medium",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/workflow/status.spec.ts"
+ },
+ "TC-WF-10": {
+  "id": "TC-WF-10",
+  "title": "Smoke path: login, create application, complete main screens, reach review",
+  "module": "Submission & Status",
+  "validationId": "",
+  "requirement": "Guideline build sequence step 5",
+  "riskId": "QR-09, QR-10",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@smoke",
+   "@e2e",
+   "@workflow"
+  ],
+  "short": true,
+  "type": "E2E",
+  "scenario": "Positive",
+  "spec": "tests/workflow/smoke-to-review.spec.ts"
+ },
+ "TC-WF-11": {
+  "id": "TC-WF-11",
+  "title": "Re-submitting a submitted application does not create a second reference or change status",
+  "module": "Submission & Status",
+  "validationId": "",
+  "requirement": "Risk QR-09: duplicate reference",
+  "riskId": "QR-09",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@e2e",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "E2E",
+  "scenario": "Negative",
+  "spec": "tests/workflow/submission.spec.ts"
+ },
+ "TC-WF-12": {
+  "id": "TC-WF-12",
+  "title": "Confirmation page is not reachable for an unsubmitted application",
+  "module": "Submission & Status",
+  "validationId": "",
+  "requirement": "Route /confirmation state check",
+  "riskId": "QR-09",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Negative",
+  "spec": "tests/workflow/submission.spec.ts"
+ },
+ "TC-WF-13": {
+  "id": "TC-WF-13",
+  "title": "Submitted data matches entered data (persistence UI/API/DB)",
+  "module": "Submission & Status",
+  "validationId": "",
+  "requirement": "Risk QR-10",
+  "riskId": "QR-10, QR-09",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@regression",
+   "@e2e",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "E2E",
+  "scenario": "Positive",
+  "spec": "tests/workflow/persistence.spec.ts"
+ },
+ "TC-API-01": {
+  "id": "TC-API-01",
+  "title": "GET /api/products returns 200 and expected schema",
+  "module": "API",
+  "validationId": "API-V01",
+  "requirement": "API-V01",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@api",
+   "@smoke",
+   "@products"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/products-api.spec.ts"
+ },
+ "TC-API-02": {
+  "id": "TC-API-02",
+  "title": "Protected APIs require authorization (no token, invalid token)",
+  "module": "API",
+  "validationId": "API-V02",
+  "requirement": "API-V02",
+  "riskId": "QR-01",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 1,
+  "tags": [
+   "@api",
+   "@smoke",
+   "@auth"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/auth-api.spec.ts"
+ },
+ "TC-API-03": {
+  "id": "TC-API-03",
+  "title": "Client API rejects invalid DOB",
+  "module": "API",
+  "validationId": "API-V03",
+  "requirement": "API-V03",
+  "riskId": "QR-03",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@client"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Boundary",
+  "spec": "tests/api/client-api.spec.ts"
+ },
+ "TC-API-04": {
+  "id": "TC-API-04",
+  "title": "Validation API returns beneficiary allocation error",
+  "module": "API",
+  "validationId": "API-V04",
+  "requirement": "API-V04",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/validation-api.spec.ts"
+ },
+ "TC-API-05": {
+  "id": "TC-API-05",
+  "title": "Submission API rejects incomplete application",
+  "module": "API",
+  "validationId": "API-V05",
+  "requirement": "API-V05",
+  "riskId": "QR-09",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@workflow"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/submission-api.spec.ts"
+ },
+ "TC-API-06": {
+  "id": "TC-API-06",
+  "title": "Applications list API matches dashboard rows (list endpoint)",
+  "module": "API",
+  "validationId": "API-V06",
+  "requirement": "API-V06",
+  "riskId": "QR-02",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@dashboard"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/applications-api.spec.ts"
+ },
+ "TC-API-07": {
+  "id": "TC-API-07",
+  "title": "Product detail API matches UI detail page",
+  "module": "API",
+  "validationId": "API-V07",
+  "requirement": "API-V07",
+  "riskId": "QR-05",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@api",
+   "@regression",
+   "@product"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/products-api.spec.ts"
+ },
+ "TC-API-08": {
+  "id": "TC-API-08",
+  "title": "Applications API returns only logged-in agent's records",
+  "module": "API",
+  "validationId": "API-V08",
+  "requirement": "API-V08",
+  "riskId": "QR-02",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@dashboard"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/applications-api.spec.ts"
+ },
+ "TC-API-09": {
+  "id": "TC-API-09",
+  "title": "Login API rejects invalid credentials",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Spec: POST /api/auth/login",
+  "riskId": "QR-01",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@auth"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/auth-api.spec.ts"
+ },
+ "TC-API-10": {
+  "id": "TC-API-10",
+  "title": "Riders API returns schema, categories and eligibility data",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Spec: GET /api/riders",
+  "riskId": "QR-06",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@rider"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/riders-api.spec.ts"
+ },
+ "TC-API-11": {
+  "id": "TC-API-11",
+  "title": "Beneficiaries API enforces allocation, minor guardian and duplicate rules",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Spec: POST /api/applications/{id}/beneficiaries",
+  "riskId": "QR-07",
+  "severity": "High",
+  "priority": "P1",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@beneficiary"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/beneficiaries-api.spec.ts"
+ },
+ "TC-API-12": {
+  "id": "TC-API-12",
+  "title": "Documents API rejects unsupported type and oversize files",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Spec: POST /api/applications/{id}/documents",
+  "riskId": "QR-08",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@api",
+   "@regression",
+   "@documents"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/documents-api.spec.ts"
+ },
+ "TC-API-13": {
+  "id": "TC-API-13",
+  "title": "Client API persistence and required-field validation errors",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Spec: GET/POST /api/applications/{id}/client",
+  "riskId": "QR-03, QR-10",
+  "severity": "High",
+  "priority": "P2",
+  "wave": 2,
+  "tags": [
+   "@api",
+   "@regression",
+   "@client"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/client-api.spec.ts"
+ },
+ "TC-API-14": {
+  "id": "TC-API-14",
+  "title": "Status API returns current status, history and timestamps",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Spec: GET /api/applications/{id}/status",
+  "riskId": "QR-09",
+  "severity": "Medium",
+  "priority": "P2",
+  "wave": 3,
+  "tags": [
+   "@api",
+   "@regression",
+   "@workflow"
+  ],
+  "short": false,
+  "type": "API",
+  "scenario": "Positive",
+  "spec": "tests/api/status-api.spec.ts"
+ },
+ "TC-API-15": {
+  "id": "TC-API-15",
+  "title": "UI and API give the same verdict for the same invalid input (rule parity)",
+  "module": "API",
+  "validationId": "",
+  "requirement": "Problem statement 2.2: API validation differs from UI",
+  "riskId": "QR-03, QR-07, QR-09",
+  "severity": "Critical",
+  "priority": "P1",
+  "wave": 3,
+  "tags": [
+   "@api",
+   "@regression"
+  ],
+  "short": true,
+  "type": "API",
+  "scenario": "Negative",
+  "spec": "tests/api/parity.spec.ts"
+ },
+ "TC-XC-01": {
+  "id": "TC-XC-01",
+  "title": "Smoke login and dashboard on Firefox and WebKit",
+  "module": "Cross-Cutting",
+  "validationId": "",
+  "requirement": "Risk QR-13 cross-browser",
+  "riskId": "QR-13",
+  "severity": "Medium",
+  "priority": "P3",
+  "wave": 3,
+  "tags": [
+   "@smoke",
+   "@cross-browser"
+  ],
+  "short": false,
+  "type": "UI",
+  "scenario": "Positive",
+  "spec": "tests/auth/login.spec.ts"
+ }
+}
